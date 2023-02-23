@@ -1,18 +1,22 @@
 import { Counter } from 'components/Counter';
+import { CountersChanger } from 'components/Counter/CountersChanger';
 import { useAppSelector } from 'hooks/reduxHooks';
 import style from './style.module.scss';
 
 const App = () => {
   const counters = useAppSelector(state => state.counters.counters);
-  const sorted = [...counters].sort((a, b) => a.order - b.order);
   
   return (
     <div className={style.wrapper}>
+      <CountersChanger />
+      
       <div className={style.counterList}>
-        {sorted.map(counter => (
+        {counters.map(counter => (
           <Counter key={counter.id} counter={counter} />
         ))}
       </div>
+
+      <CountersChanger />
     </div>
   );
 };

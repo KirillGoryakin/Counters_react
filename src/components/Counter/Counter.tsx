@@ -16,8 +16,8 @@ const Counter: React.FC<Props> = ({ counter }) => {
       <div className={style.bottom}>
         <span className={style.count}>{counter.count}</span>
         <div className={style.buttons}>
-          <Button>+</Button>
-          <Button>-</Button>
+          <Button color='green'>+</Button>
+          <Button color='red'>&#8722;</Button>
         </div>
       </div>
     </div>

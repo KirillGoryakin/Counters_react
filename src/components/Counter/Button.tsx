@@ -9,8 +9,8 @@ const colors = {
 type ButtonColor = keyof typeof colors;
 
 type Props = {
-  children: string;
-  color?: ButtonColor | string;
+  children: React.ReactNode | string;
+  color?: ButtonColor;
   className?: string;
   onClick?: React.MouseEventHandler;
   buttonProps?: { [key: string]: any };
@@ -24,15 +24,12 @@ const Button: React.FC<Props> = (props) => {
     onClick,
     buttonProps,
   } = props;
-
-  const backgroundColor =
-    Object.keys(colors).includes(color) ? (colors as any)[color] : color;
   
   return (
     <button
       className={`${style.button} ${className}`}
       onClick={onClick}
-      style={{ backgroundColor }}
+      style={{ backgroundColor: colors[color] }}
       {...buttonProps}
     >
       {children}
