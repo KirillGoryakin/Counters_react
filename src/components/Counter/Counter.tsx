@@ -31,7 +31,10 @@ const Counter: React.FC<Props> = ({ counter }) => {
           {counter.title}
         </ChangableTitle>
 
-        <Button onClick={handleDelete}>
+        <Button
+          onClick={handleDelete}
+          className={style.deleteButton}
+        >
           Delete
         </Button>
       </div>
