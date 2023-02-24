@@ -6,31 +6,26 @@ interface CountersState {
 }
 
 const initialState: CountersState = {
-  counters: [
-    {id: '0', title: 'Test', count: 0},
-    {id: '1', title: 'Test 2', count: 0},
-    {id: '2', title: 'Test another', count: 0},
-    {id: '3', title: 'Test 12452315d', count: 0},
-    {id: '4', title: 'OUIg grh het', count: 0},
-    {id: '5', title: 'Lorem ipsum', count: 0},
-    {id: '6', title: 'Test g353', count: 0},
-  ],
+  counters: [],
 };
 
 const coutersSlice = createSlice({
   name: 'counters',
   initialState,
   reducers: {
-    addCounter(state, action: PayloadAction<string>) {
+    addCounter(state) {
       const newCounter: Counter = {
         id: Date.now().toString(),
-        title: action.payload,
+        title: `New counter ${state.counters.length + 1}`,
         count: 0,
       };
       state.counters.push(newCounter);
     },
     deleteCounter(state, action: PayloadAction<string>) {
       state.counters = state.counters.filter(({ id }) => id !== action.payload);
+    },
+    deleteLastCounter(state) {
+      state.counters = state.counters.slice(0, -1);
     },
     incrementCounter(
       state,
@@ -49,6 +44,7 @@ const coutersSlice = createSlice({
 export const {
   addCounter,
   deleteCounter,
+  deleteLastCounter,
   incrementCounter,
   renameCounter,
 } = coutersSlice.actions;

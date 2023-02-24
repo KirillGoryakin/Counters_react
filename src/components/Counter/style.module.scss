@@ -12,18 +12,6 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
-
-    .title {
-      padding: 0.5rem 1rem;
-      
-      font-size: 3rem;
-      font-weight: 500;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.1s ease-in-out;
-
-      &:hover { background: $dark700; }
-    }
   }
 
   .bottom {
@@ -61,10 +49,27 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  user-select: none;
 }
 
 .countersChanger {
   display: flex;
   justify-content: center;
   gap: 2rem;
+}
+
+.changableTitle {
+  padding: 0.5rem 1rem;
+
+  font-size: 3rem;
+  font-weight: 500;
+  border-radius: 5px;
+}
+span.changableTitle {
+  cursor: pointer;
+  transition: background 0.1s ease-in-out;
+
+  &:hover {
+    background: $dark700;
+  }
 }
