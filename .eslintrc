@@ -19,6 +19,7 @@
         "imports": "only-multiline",
         "exports": "only-multiline",
         "functions": "only-multiline"
-    }]
+    }],
+    "import/no-anonymous-default-export": "off"
   }
 }

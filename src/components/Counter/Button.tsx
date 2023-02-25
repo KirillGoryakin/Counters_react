@@ -13,24 +13,24 @@ type Props = {
   color?: ButtonColor;
   className?: string;
   onClick?: React.MouseEventHandler;
-  buttonProps?: { [key: string]: any };
+  buttonProps?: React.ComponentProps<'button'>;
 };
 
 const Button: React.FC<Props> = (props) => {
   const {
     children,
     color = 'purple',
-    className,
+    className = '',
     onClick,
     buttonProps,
   } = props;
   
   return (
     <button
+      {...buttonProps}
       className={`${style.button} ${className}`}
       onClick={onClick}
       style={{ backgroundColor: colors[color] }}
-      {...buttonProps}
     >
       {children}
     </button>

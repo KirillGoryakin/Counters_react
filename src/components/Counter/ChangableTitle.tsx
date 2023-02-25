@@ -5,8 +5,8 @@ type Props = {
   children: string;
   onChangeFinish?: (newValue: string) => void;
   className?: string;
-  spanProps?: { [key: string]: any; };
-  inputProps?: { [key: string]: any; };
+  spanProps?: React.ComponentProps<'span'>;
+  inputProps?: React.ComponentProps<'input'>;
 };
 
 const ChangableTitle: React.FC<Props> = (props) => {
