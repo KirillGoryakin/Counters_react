@@ -10,7 +10,13 @@ type Props = {
 };
 
 const ChangableTitle: React.FC<Props> = (props) => {
-  const { children, onChangeFinish, className, spanProps, inputProps } = props;
+  const {
+    children,
+    onChangeFinish,
+    className = '',
+    spanProps,
+    inputProps,
+  } = props;
 
   const [value, setValue] = useState(children);
   const [changing, setChanging] = useState(false);
